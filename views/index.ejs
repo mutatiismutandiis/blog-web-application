@@ -1,1 +1,71 @@
-<h1>Conectado</h1>
+<%- include("partials/header.ejs") %>
+
+<div class="row">
+  <div class="left-column">
+    <div class="card">
+      <h2>Example post 1</h2>
+      <h5><%= currentDate %></h5>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
+        omnis ea pariatur consequatur nesciunt nihil culpa, qui soluta
+        praesentium similique perferendis, ut numquam laudantium reprehenderit
+        nemo totam ipsam enim magnam!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
+        omnis ea pariatur consequatur nesciunt nihil culpa, qui soluta
+        praesentium similique perferendis, ut numquam laudantium reprehenderit
+        nemo totam ipsam enim magnam!
+      </p>
+    </div>
+
+    <% posts.forEach( (post, index) => { %>
+    <div class="card" id="post_<%= index %>">
+      <h2><%= post.title %></h2>
+      <h5><%= post.date %></h5>
+      <p><%= post.content %></p>
+      <div class="buttons">
+        <button class="edit-btn" onclick="editPost(<%= index %>)">Edit</button>
+        <button class="delete-btn" onclick="deletePost(<%= index %>)">
+          Delete
+        </button>
+      </div>
+    </div>
+    <% }); %>
+
+    <div class="blog-post">
+      <form id="postForm" action="/posts" method="POST">
+        <label for="title">Post title:</label>
+        <input type="text" id="btitle" name="btitle" required minlength="3" />
+        <label for="content">Post content:</label>
+        <input
+          type="text"
+          id="bcontent"
+          name="bcontent"
+          required
+          minlength="3"
+        />
+        <input type="submit" value="POST" />
+      </form>
+    </div>
+  </div>
+
+  <div class="right-column">
+    <div class="card">
+      <h2 id="about-me">About Me</h2>
+      <div class="cat-image">
+        <img src="/images/kitten.png" alt="cute-kitten-image" width="250px" />
+      </div>
+      <p id="random-text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
+        necessitatibus amet ipsa sit esse possimus repudiandae dicta dolor alias
+        quas nesciunt non eius consectetur facilis odio, officiis aut harum.
+        Quasi?
+      </p>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+</div>
+
+<%- include("partials/footer.ejs") %>
