@@ -10,9 +10,8 @@
 }
 
 body {
-  background-color: var(--soft-yellow);
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
-    helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+  background-image: url("/images/pattern.png");
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Header */
@@ -165,6 +164,8 @@ body {
 }
 
 #copyright {
-  color: var(--dark-green);
   text-align: center;
+  color: var(--dark-green);
+  font-size: large;
+  text-shadow: 2px 2px 5px var(--light-green);
 }
